@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lightcyan;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 25px;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header img {
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        .header .nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header button {
+            width: 100px;
+            height: 40px;
+            border: 1px solid #0062ff;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0;
+        }
+
+        .header button a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .header button:first-child {
+            color: #0062ff;
+            background-color: black;
+        }
+
+        .header button:first-child a {
+            color: #0062ff;
+        }
+
+        .header button:last-child {
+            color: black;
+            background-color: #0062ff;
+        }
+
+        .header button:last-child a {
+            color: black;
+        }
+
+        .container-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            flex-grow: 1;
+            margin-top: 140px;
+        }
+
+        .container {
+            display: flex;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            max-width: 680px;
+            width: 90%;
+            height: 370px;
+            flex-direction: row;
+        }
+
+        .welcome {
+            background-color: #0078d4;
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+
+        .welcome h1 {
+            margin: 0 0 20px;
+        }
+
+        .login {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50%;
+            color: grey;
+            font-size: 12px;
+        }
+
+        .login h2 {
+            margin-bottom: 20px;
+            color: black;
+            font-size: 30px;
+        }
+
+        .login label {
+            margin-bottom: 5px;
+        }
+
+        .login input {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 230px;
+        }
+
+        .login .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .login .login-button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: 80px; 
+        }
+
+        .login .login-button {
+            background-color: #0078d4;
+        }
+
+        .login .login-button:hover {
+            background-color: #005bb5;
+        }
+
+        .login .singpass-button {
+            background-color: red;
+            font-family: fantasy;
+            border: none;
+            color: white;
+            width: 160px;
+            height: 36px;
+            border-radius: 5px;
+        }
+
+        .login .singpass-button:hover {
+            background-color: darkred;
+        }
+
+        .login a {
+            color: #0062ff;
+            text-decoration: none;
+        }
+
+        .display {
+            display: none; 
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .display-content {
+            background-color: none;
+            color: black;
+            margin: auto;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .display-content img {
+            width: 400px;
+            height: 450px;
+            align-items: center;
+            border-radius: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+
+            .header img {
+                height: 50px;
+                margin-right: 10px;
+            }
+
+            .header .nav {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 10px;
+            }
+
+            .header button {
+                width: 48%;
+                font-size: 14px;
+            }
+
+            .container {
+                flex-direction: column;
+                max-width: 100%;
+                height: auto;
+            }
+
+            .welcome, .login {
+                padding: 20px;
+                width: 100%;
+            }
+
+            .login h2 {
+                font-size: 24px;
+            }
+
+            .login button {
+                font-size: 14px;
+            }
+
+            .display-content img {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 16px;
+            }
+
+            .header img {
+                height: 30px;
+            }
+
+            .header button {
+                width: 48%;
+                font-size: 10px;
+            }
+
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .welcome, .login {
+                padding: 15px;
+            }
+
+            .login h2 {
+                font-size: 20px;
+            }
+
+            .login button {
+                font-size: 12px;
+            }
+
+            .display-content img {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="qp logo">
+            <header>QUANTUM PROPERTIES</header>
+        </div>
+        <div class="nav">
+            <button type="button" onclick="location.href='login.html'">Login</button>
+            <button type="button" onclick="location.href='register.html'">Get Started</button>
+        </div>
+    </div>
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="welcome">
+                <h1>Welcome back</h1>
+                <p>Login to access QuantumProperties.<br>Start your co-investing journey today.</p>
+            </div>
+            <div class="login">
+                <h2><b>Login</b></h2>
+                <label for="email">Email address</label>
+                <input type="email" id="email">
+
+                <label for="password">Password</label>
+                <input type="password" id="password">
+
+                <div class="buttons">
+                    <button type="button" class="login-button" onclick="location.href='overview.html'">Login</button>
+                    <button type="button" class="singpass-button" onclick="showPop()">Login with Singpass</button>
+                </div>
+                
+                <a href="#">Forgot password?</a>
+                <p>New to QuantumProperties? <a href="register.html">Create an account</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="pop" class="display">
+        <div class="display-content">
+            <img src="images/singpassqr.png" onclick="hidePop(), location.href='overview.html'">
+        </div>
+    </div>
+</body>
+<script>
+    function showPop() {
+        document.getElementById("pop").style.display = "flex";
+    }
+    function hidePop() {
+        document.getElementById("pop").style.display = "none";
+    }
+</script>
+</html>

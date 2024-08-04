@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assets Overview</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e7e7e7;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            height:510px;
+            background-color: #0078d4;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar h1 {
+            font-size: 20px;
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid white;
+        }
+        .sidebar .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            cursor: pointer;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar .nav-item span {
+            margin-left: 20px;
+        }
+
+        .sidebar .nav-item:hover {
+            background-color: #005bb5;
+            border-radius: 10px;
+        }
+
+        .sidebar .nav-item.active {
+            background-color: #005bb5;
+            border-radius: 10px;
+        }
+        .sidebar .contact {
+            padding: 20px 0;
+            border-top: 1px solid white;
+            text-align: center;
+        }
+        .sidebar .contact h2 {
+            font-size:25px;
+            margin: 10px 0;
+        }
+        .sidebar .contact p {
+            font-size: 15px;
+            margin: 5px 0;
+        }
+
+        .sidebar img {
+            border: none;
+            border-radius: 30px;
+            margin-left: 40%;
+            margin-top: 20%;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .property-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            padding: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .property-card img {
+            width: 180px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .property-card h2 {
+            font-size: 20px;
+            margin: 0 0 10px;
+            margin-bottom: 25px;
+            color: darkblue;
+        }
+        .property-card p {
+            margin: 5px 0;
+        }
+        .property-card .stats {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-right: 200px;
+        }
+        .property-card .stats div {
+            text-align: center;
+            flex: 1;
+        }
+
+        .property-card .stats div p:first-child {
+            color: grey;
+        }
+
+        .property-card .stats div p:last-child {
+            color: black;
+            font-size: 18px;
+        }
+
+        .property-card .stats div p .smaller {
+            font-size: 12px;
+        }
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 200px;
+            }
+            .main-content {
+                margin-left: 200px;
+                padding: 10px;
+            }
+            .property-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .property-card img {
+                width: 100%;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .property-card .stats {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-right: 0;
+            }
+            .property-card .stats div {
+                width: 100%;
+                text-align: left;
+                margin-bottom: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 150px;
+                padding: 8px;
+            }
+            .sidebar h1 {
+                font-size: 18px;
+            }
+            .sidebar .nav-item {
+                font-size: 14px;
+            }
+            .sidebar .contact h2 {
+                font-size: 18px;
+            }
+            .sidebar .contact p {
+                font-size: 12px;
+            }
+            .main-content {
+                margin-left: 150px;
+                padding: 10px;
+            }
+            .property-card h2 {
+                font-size: 18px;
+            }
+            .property-card p {
+                font-size: 14px;
+            }
+            .property-card .stats div p:last-child {
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 120px;
+                padding: 8px;
+                height: auto;
+            }
+            .sidebar h1 {
+                font-size: 16px;
+            }
+            .sidebar .nav-item {
+                font-size: 12px;
+            }
+            .sidebar .contact h2 {
+                font-size: 16px;
+            }
+            .sidebar .contact p {
+                font-size: 11px;
+            }
+            .main-content {
+                margin-left: 120px;
+                padding: 10px;
+            }
+            .property-card h2 {
+                font-size: 16px;
+            }
+            .property-card p {
+                font-size: 12px;
+            }
+            .property-card .stats div p:last-child {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div>
+            <h1>QUANTUM PROPERTIES</h1>
+            <div class="nav-item active" onclick="location.href='overview.html'">
+                <span>Assets Overview</span>
+            </div>
+            <div class="nav-item" onclick="location.href='market.html'">
+                <span>Market Place</span>
+            </div>
+            <div class="nav-item" onclick="location.href='transactions.html'">
+                <span>Transactions</span>
+            </div>
+            <div class="nav-item" onclick="location.href='wallet.html'">
+                <span>Wallet</span>
+            </div>
+            <div class="nav-item" onclick="location.href='account.html'">         
+                <span>Account</span>
+            </div>
+            <div class="logo-container">
+                <img src="images/homeLogo.png" alt="Logo" style="width: 50px; height: 50px;">
+            </div>
+        </div>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>+65 9855 5552</p>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="property-card" onclick="location.href='propertyInfo.html'">
+            <img src="images/barker.jpg" alt="Property Image">
+            <div>
+                <h2>45 Barker Rd, Singapore, 307476</h2>
+                <div class="stats">
+                    <div>
+                        <p>Shares</p>
+                        <p><b>1</b><span class="smaller"> of 6837 (0.01%)</span></p>
+                    </div>
+                    <div>
+                        <p>Your CoC Return</p>
+                        <p><b>6.83%</b></p>
+                    </div>
+                    <div>
+                        <p>Current value</p>
+                        <p><b>$50.36</b></p>
+                    </div>
+                    <div>
+                        <p>Total rent earned</p>
+                        <p><b>$17.41</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

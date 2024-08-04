@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit sell share</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #c9e5f9;
+        }
+        .container {
+            padding: 40px;
+        }
+        .header {
+            font-size: 60px;
+            color: #003366;
+        }
+        .subheader {
+            font-size: 20px;
+            color: #666666;
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-left: 100px;
+        }
+        .form-group ::placeholder {
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        .form-group input {
+            font-size: 18px;
+            padding: 10px;
+            border: 2px solid #003366;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            height: 60px;
+            border-radius: 15px;
+            background-color: #c9e5f9;
+        }
+        .form-group select {
+            font-size: 18px;
+            padding: 10px;
+            border: 2px solid #003366;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            height: 85px;
+            border-radius: 15px;
+            background-color: #c9e5f9;
+        }
+        .plat-fees,
+        .proc-fees {
+            font-size: 18px;
+            color: #003366;
+            margin-top: 40px;
+            margin-left: 100px;
+            border-bottom: 2px solid #003366;
+        }
+        .plat-fees span {
+            margin-left: 70%;
+        }
+        .proc-fees span {
+            margin-left: 65%;
+        }
+        .submit-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .subtotal {
+            font-size: 18px;
+            color: #666666;
+        }
+        .submit-button {
+            background-color: #0062ff;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-right: 120px;
+            height: 50px;
+            width: 230px;
+        }
+        .submit-button:hover {
+            background-color: #003366;
+        }
+        .form-group .share-quantity {
+            color: #003366;
+        }
+        .form-group label {
+            font-size: 20px;
+        }
+        .close-button {
+            position: absolute;
+            right: 20px;
+            font-size: 80px;
+            cursor: pointer;
+        }
+        .display {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }   
+        .display-content {
+            background-color: white;
+            color: black;
+            margin: 15% auto;
+            padding: 20px;
+            width: 50%;
+            height: 45%;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .display-content img {
+            width: 100px;
+            height: 100px;
+            align-items: center;
+            border-radius: 44px;
+        }
+        .close-display button {
+            background-color: #0062ff;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        .close-display button:hover {
+            background-color: #003366;
+        }
+        footer {
+            background-color: white;
+            height: 90px;
+            padding: 10px;
+        }
+        footer .subtotal {
+            margin-left: 620px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .right {
+            width: 50%;
+            margin-right: 50px;
+        }
+        .left .header {
+            margin-left: 20px;
+            font-size: 53px;
+        }
+        .left .subheader {
+            margin-left: 50px;
+            font-size: 25px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .form-group {
+                margin-left: 0;
+            }
+            .plat-fees, .proc-fees {
+                margin-left: 0;
+            }
+            .plat-fees span, .proc-fees span {
+                margin-left: 0;
+                display: block;
+                text-align: right;
+            }
+            footer .subtotal {
+                margin-left: 0;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .submit-button {
+                width: 100%;
+                margin-right: 0;
+            }
+            .left .header, .left .subheader {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .header {
+                font-size: 40px;
+            }
+            .subheader {
+                font-size: 16px;
+            }
+            .form-group input, .form-group select {
+                font-size: 16px;
+                padding: 8px;
+                height: auto;
+            }
+            .plat-fees, .proc-fees {
+                font-size: 16px;
+            }
+            .plat-fees span, .proc-fees span {
+                margin-left: 0;
+                display: block;
+                text-align: right;
+            }
+            footer .subtotal {
+                font-size: 16px;
+            }
+            .submit-button {
+                font-size: 16px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="close-button" onclick="location.href='overview.html'">&times;</div>
+    <div class="container">
+        <div class="left">
+            <div class="header"><b>Submit sell share</b></div>
+            <div class="subheader">45 Barker Rd, Singapore, 307476</div>
+        </div>
+        <div class="right">
+        <div class="form-container">
+            <div>
+                <div class="form-group">
+                    <label for="share-quantity" style="color: #003366;">Property share quantity</label>
+                    <input type="text" id="share-quantity" placeholder="Share quantity">
+                </div>
+                <div class="form-group">
+                    <label for="payment-method" style="color: #003366;">Payment method</label>
+                    <select id="payment-method" style="color: #003366">
+                        <option>Visa</option>
+                        <option>MasterCard</option>
+                        <option>American Express</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="plat-fees">
+                    Platform fee<span>(2%)</span>
+                </div>
+                <div class="proc-fees">
+                    Processing fee <span>(2%)</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div id="pop" class="display">
+        <div class="display-content">
+            <img src="images/tick.png">
+            <h1>Sell Share Successful!</h1>
+            <span class="close-display" onclick="hidePop()"><button onclick="location.href='overview.html'">Done</button></span>
+        </div>
+    </div>
+
+    <script>
+        function showPop() {
+            document.getElementById("pop").style.display = "flex";
+        }
+ 
+        function hidePop() {
+            document.getElementById("pop").style.display = "none";
+        }
+    </script>
+</body>
+<footer>
+    <div class="submit-section">
+        <div class="subtotal">Subtotal</div>
+        <button class="submit-button" onclick="showPop()">Submit order</button>
+    </div>
+</footer>
+</html>

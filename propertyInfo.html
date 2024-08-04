@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+        }
+        .image-gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .property-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .property-details {
+            flex: 2;
+            margin-left: 30px;
+        }
+        .property-details h2 {
+            margin: 0;
+            font-size: 50px;
+            color: #003366;
+        }
+        .property-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .property-chart {
+            margin-top: 20px;
+        }
+        .chart img {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            border-radius: 10px;
+        }
+        .property-stats {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: white;
+            box-shadow: 0 4px 8px grey;
+            border-radius: 70px;
+            padding: 20px;
+            margin-left: 100px;
+            height: fit-content;
+        }
+        .property-stats p {
+            margin: 25px 20px;
+            font-size: 20px;
+        }
+        .property-stats p span {
+            color: #003366;
+        }
+        .property-stats .buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 25px;
+            align-self: center;
+        }
+        .property-stats .buttons button {
+            width: 140px;
+            height: 55px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #0078d4;
+            color: white;
+        }
+
+        .property-stats .stat {
+            margin-left: 130px;
+        }
+        .house-description {
+            width: 40%;
+            margin-top: 20px;
+            margin-left: 50px;
+            font-size: 25px;
+        }
+
+        .house-description p {
+            font-size: 15px;
+        }
+
+        .property-stats .buttons button:hover {
+            background-color: #005dd5;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 20px;
+            font-size: 80px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .property-details h2 {
+                font-size: 40px;
+            }
+            .chart img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .property-details h2 {
+                font-size: 30px;
+            }
+            .chart img {
+                height: 150px;
+            }
+            .property-stats {
+                margin-left: 0;
+                margin-top: 20px;
+                border-radius: 20px;
+            }
+            .house-description {
+                width: 100%;
+                margin-left: 0;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .property-details h2 {
+                font-size: 25px;
+            }
+            .chart img {
+                height: 120px;
+            }
+            .property-stats p {
+                font-size: 16px;
+                margin: 10px;
+            }
+            .property-stats .buttons button {
+                width: 100px;
+                height: 45px;
+                font-size: 14px;
+            }
+            .house-description {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-gallery">
+        <img src="images/barker.jpg" alt="Property Image 1">
+        <img src="images/barker3.jfif" alt="Property Image 2">
+        <img src="images/barker2.jpg" alt="Property Image 3">
+    </div>
+    <div class="property-info">
+        <div class="property-details">
+            <div class="close-button" onclick="location.href='overview.html'">&times;</div>
+            <h2>45 Barker Rd</h2>
+            <p>Singapore, 307476</p>
+            <div class="property-chart">
+                <h3>Price per share (30d)</h3>
+                <div class="chart">
+                    <img src="images/chart.png" alt="Price Chart">
+                </div>
+            </div>
+        </div>
+        <div class="property-stats">
+            <p><b>Starting at: <span class="stat">$50</span></b></p>
+            <p><b>CoC return: <span class="stat">6.83%</span></b></p>
+            <p><b>Shares left: <span class="stat">1008</span></b></p>
+            <div class="buttons">
+                <button onclick="location.href='buyForm.html'">Buy</button>
+                <button onclick="location.href='sellform.html'">Sell</button>
+            </div>
+        </div>
+    </div>
+    <div class="house-description">
+        <b>House description:</b>
+        <p>45G Barker Road is part of Barker Ville, a freehold cluster housing development located in District 11, specifically in the Chancery, Dunearn, Newton area of Singapore. This development consists of eight units and was completed in 2010 by Starluck SLN Development Pte Ltd. The property offers a luxurious living environment with semi-detached houses.</p>
+    </div>
+</body>
+</html>

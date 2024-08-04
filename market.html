@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Properties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            background-color: #0078d4;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar h1 {
+            font-size: 20px;
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid white;
+        }
+        .sidebar .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            cursor: pointer;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .sidebar .nav-item span {
+            margin-left: 20px;
+        }
+        .sidebar .nav-item:hover {
+            background-color: #005bb5;
+            border-radius: 10px;
+        }
+        .sidebar .nav-item.active {
+            background-color: #005bb5;
+            border-radius: 10px;
+        }
+        .sidebar .contact {
+            padding: 20px 0;
+            border-top: 1px solid white;
+            text-align: center;
+        }
+        .sidebar .contact h2 {
+            font-size: 25px;
+            margin: 10px 0;
+        }
+        .sidebar .contact p {
+            font-size: 15px;
+            margin: 5px 0;
+        }
+        .sidebar img {
+            border: none;
+            border-radius: 30px;
+            margin-left: 40%;
+            margin-top: 20%;
+        }
+        .content {
+            margin-left: 290px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #e0e0e0;
+            width: calc(100% - 250px);
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .filter-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .filter-item select, .filter-item input {
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: purple;
+        }
+        .property-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        .property-card, .empty-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 400px;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        .property-card img {
+            width: 100%;
+            height: 150px;
+        }
+        .empty-card img {
+            width: 200px;
+            height: 200px;
+        }
+        .property-details {
+            padding: 10px;
+        }
+        .property-details h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .property-details p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .empty-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: #f0f0f0;
+        }
+        .empty-card img {
+            width: 200px;
+            height: 200px;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 150px;
+                padding: 10px;
+            }
+            .sidebar h1 {
+                font-size: 18px;
+            }
+            .sidebar .nav-item {
+                font-size: 14px;
+            }
+            .sidebar .contact h2 {
+                font-size: 20px;
+            }
+            .sidebar .contact p {
+                font-size: 13px;
+            }
+            .sidebar img {
+                margin-left: 30%;
+            }
+            .content {
+                margin-left: 170px;
+                width: calc(100% - 150px);
+            }
+            .property-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            .property-card, .empty-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div>
+            <h1>QUANTUM PROPERTIES</h1>
+            <div class="nav-item" onclick="location.href='overview.html'">
+                <span>Assets Overview</span>
+            </div>
+            <div class="nav-item active" onclick="location.href='market.html'">
+                <span>Market Place</span>
+            </div>
+            <div class="nav-item" onclick="location.href='transactions.html'">
+                <span>Transactions</span>
+            </div>
+            <div class="nav-item" onclick="location.href='wallet.html'">
+                <span>Wallet</span>
+            </div>
+            <div class="nav-item" onclick="location.href='account.html'">
+                <span>Account</span>
+            </div>
+            <div>
+                <img src="images/homeLogo.png" alt="Logo" style="width: 50px; height: 50px;">
+            </div>
+        </div>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>+65 9855 5552</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="filters">
+            <div class="filter-item">
+                <label for="location">Location</label>
+                <select id="location">
+                    <option>All Markets</option>
+                    <option>Central</option>
+                    <option>North</option>
+                    <option>South</option>
+                    <option>East</option>
+                    <option>West</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="property-type">Property type</label>
+                <select id="property-type">
+                    <option>All Properties</option>
+                    <option>HDB</option>
+                    <option>Condo</option>
+                    <option>Terrace</option>
+                    <option>Mansion</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="cash-return">Cash on cash return</label>
+                <input type="text" id="cash-return" placeholder="%">
+            </div>
+            <div class="filter-item">
+                <label for="cost-share">Cost per share</label>
+                <input type="text" id="cost-share" placeholder="$">
+            </div>
+        </div>
+        <div class="property-list">
+            <div class="property-card" onclick="location.href='propertyInfo.html'">
+                <img src="images/barker.jpg" alt="45 Barker Rd">
+                <div class="property-details">
+                    <h3>45 Barker Rd</h3>
+                    <p>Singapore, 307476</p>
+                    <p>6.8% CoC</p>
+                    <p>Starts at $50</p>
+                </div>
+            </div>
+            <div class="empty-card">
+                <img src="images/emptyhouse.jpg" alt="Empty House">
+            </div>
+            <div class="empty-card">
+                <img src="images/emptyhouse.jpg" alt="Empty House">
+            </div>
+            <div class="empty-card">
+                <img src="images/emptyhouse.jpg" alt="Empty House">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

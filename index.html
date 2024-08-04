@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Properties</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: black;
+            color: white;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 25px;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header img {
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        .header .nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header button {
+            width: 100px;
+            height: 40px;
+            border: 1px solid #0062ff;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .header button:first-child {
+            color: #0062ff;
+            background-color: black;
+        }
+
+        .header button:last-child {
+            color: black;
+            background-color: #0062ff;
+        }
+
+        .main {
+            background-image: url("images/backgrnd.png");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            font-size: 25px;
+            padding: 130px 20px;
+        }
+
+        footer {
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid white;
+        }
+
+        footer img {
+            height: 75px;
+            width: 90px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+
+            .header img {
+                height: 50px;
+                margin-right: 10px;
+            }
+
+            .header .nav {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 10px;
+            }
+
+            .header button {
+                width: 48%;
+                font-size: 14px;
+            }
+
+            .main {
+                font-size: 20px;
+                padding: 100px 20px;
+            }
+
+            footer img {
+                height: 60px;
+                width: 72px;
+            }
+
+            footer p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 18px;
+            }
+
+            .header img {
+                height: 40px;
+            }
+
+            .header button {
+                width: 48%;
+                font-size: 12px;
+            }
+
+            .main {
+                font-size: 18px;
+                padding: 80px 20px;
+            }
+
+            footer img {
+                height: 50px;
+                width: 60px;
+            }
+
+            footer p {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .header {
+                font-size: 16px;
+            }
+
+            .header img {
+                height: 30px;
+            }
+
+            .header button {
+                width: 48%;
+                font-size: 10px;
+            }
+
+            .main {
+                font-size: 16px;
+                padding: 60px 20px;
+            }
+
+            footer img {
+                height: 40px;
+                width: 48px;
+            }
+
+            footer p {
+                font-size: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">
+        <img src="images/logo.png" alt="qp logo">
+        <header>QUANTUM PROPERTIES</header>
+    </div>
+    <div class="nav">
+        <button type="button" onclick="location.href='login.html'">Login</button>
+        <button type="button" onclick="location.href='register.html'">Get Started</button>
+    </div>
+</div>
+
+<div class="main">
+    <h1>Invest in <span style="color: #0062ff;">Houses</span><br>Worldwide</h1>
+    <p>Unlock premium property investments at a fraction of the cost</p>
+</div>
+
+<footer>
+    <img src="images/masLogo.png" alt="mas logo">
+    <p><b>Regulated by the Monetary Authority of Singapore (<a href="https://eservices.mas.gov.sg/fid" style="color: #00f;">CMS 101156</a>)</b></p>
+</footer>
+
+</body>
+</html>

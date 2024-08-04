@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Credit Card</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #0078d4;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar h1 {
+            font-size: 20px;
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid white;
+        }
+        .sidebar .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            cursor: pointer;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .sidebar .nav-item span {
+            margin-left: 20px;
+        }
+        .sidebar .nav-item:hover {
+            background-color: #005bb5;
+            border-radius: 10px;
+        }
+        .sidebar .nav-item.active {
+            background-color: #005bb5;
+            border-radius: 10px;
+        }
+        .sidebar .contact {
+            padding: 20px 0;
+            border-top: 1px solid white;
+            text-align: center;
+        }
+        .sidebar .contact h2 {
+            font-size: 25px;
+            margin: 10px 0;
+        }
+        .sidebar .contact p {
+            font-size: 15px;
+            margin: 5px 0;
+        }
+        .sidebar img {
+            border: none;
+            border-radius: 30px;
+            margin-left: 40%;
+            margin-top: 20%;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 50px;
+            background-color: #c9e5f9;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 70px;
+            margin-left: 270px;
+            overflow-y: auto;
+        }
+        .card-form {
+            background-color: white;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .card-form img {
+            display: block;
+            width: 90%;
+            height: 150px;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+        .card-form h2 {
+            font-weight: bold;
+            font-size: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .card-form input[type="text"], .card-form input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .card-form .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card-form .flex-container input[type="text"] {
+            width: calc(50% - 5px);
+        }
+        .card-form input[type="submit"] {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .card-form input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+        .card-form .flex-container input.shorter {
+            width: calc(30% - 10px);
+        }
+        #back input[type="submit"] {
+            margin-top: 85px;
+        }
+        .display {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .display-content {
+            background-color: none;
+            color: black;
+            margin: auto;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .display-content img {
+            width: 400px;
+            height: 300px;
+            align-items: center;
+            border-radius: 15px;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 150px;
+                padding: 10px;
+            }
+            .sidebar h1 {
+                font-size: 18px;
+            }
+            .sidebar .nav-item {
+                font-size: 14px;
+            }
+            .sidebar .contact h2 {
+                font-size: 20px;
+            }
+            .sidebar .contact p {
+                font-size: 13px;
+            }
+            .main {
+                flex-direction: column;
+                margin-left: 170px;
+                padding: 20px;
+                align-items: center;
+            }
+            .card-form {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 120px;
+                padding: 8px;
+            }
+            .sidebar h1 {
+                font-size: 16px;
+            }
+            .sidebar .nav-item {
+                font-size: 12px;
+            }
+            .sidebar .contact h2 {
+                font-size: 16px;
+            }
+            .sidebar .contact p {
+                font-size: 11px;
+            }
+            .main {
+                flex-direction: column;
+                margin-left: 130px;
+                padding: 10px;
+                align-items: center;
+            }
+            .card-form {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div>
+            <h1>QUANTUM PROPERTIES</h1>
+            <div class="nav-item" onclick="location.href='overview.html'">
+                <span>Assets Overview</span>
+            </div>
+            <div class="nav-item" onclick="location.href='market.html'">
+                <span>Market Place</span>
+            </div>
+            <div class="nav-item" onclick="location.href='transactions.html'">
+                <span>Transactions</span>
+            </div>
+            <div class="nav-item active" onclick="location.href='wallet.html'">
+                <span>Wallet</span>
+            </div>
+            <div class="nav-item" onclick="location.href='account.html'">         
+                <span>Account</span>
+            </div>
+            <div>
+                <img src="images/homeLogo.png" alt="Logo" style="width: 50px; height: 50px;">
+            </div>
+        </div>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>+65 9855 5552</p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="card-form">
+            <h2>Add Credit Card</h2>
+            <img src="images/cardFront.png" alt="Credit Card Front">
+            <input type="text" placeholder="Card Number">
+            <div class="flex-container">
+                <input type="text" placeholder="Cardholder Name">
+                <input type="text" class="shorter" placeholder="Valid Thru">
+            </div>
+            <input type="submit" value="Scan Card" onclick="showPop()">
+        </div>
+        <div class="card-form" id="back">
+            <h2>Add Credit Card</h2>
+            <img src="images/cardBack.png" alt="Credit Card Back">
+            <input type="text" placeholder="Security Code (CVV)">
+            <input type="submit" value="Save Card" onclick="saved()">
+        </div>
+    </div>
+    <div id="popFront" class="display" onclick="showPop2('popBack')">
+        <div class="display-content">
+            <img src="images/scanFront.jpg">    
+        </div>
+    </div>
+    <div id="popBack" class="display" onclick="saved()">
+        <div class="display-content">
+            <img src="images/scanBack.jpg" onclick="hidePop(), hidePop2()">    
+        </div>
+    </div>
+    <script>
+        function saved() {
+            return alert("Card details saved")
+        }
+
+        function showPop() {
+            document.getElementById('popFront').style.display = "flex";
+        }
+
+        function showPop2() {
+            document.getElementById('popBack').style.display = "flex";
+        }
+ 
+        function hidePop() {
+            document.getElementById('popBack').style.display = "none";
+        }
+
+        function hidePop2() {
+            document.getElementById('popFront').style.display = "none";
+        }
+    </script>
+</body>
+</html>
